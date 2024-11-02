@@ -6,8 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Big Vacation Lock">
   <meta name="author" content="Luan Leandro Nogueira">
-  <title>Bootstrap demo</title>
+  <title>Bigvacation Lock</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <!-- css -->
+   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <style>
       /* Adicione um estilo específico para telas menores, como celulares */
@@ -46,15 +52,15 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
             </li>
-            <div style="border: 1px solid red;" class="float-end">
+            <div>
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Dropdown link
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item text-dark" href="#">Action</a></li>
+                  <li><a class="dropdown-item text-dark" href="#">Another action</a></li>
+                  <li><a class="dropdown-item text-dark" href="#">Something else here</a></li>
                 </ul>
               </li>
             </div>
