@@ -15,7 +15,7 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $wifi_password = filter_var($_POST['wifi_password'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
         $observations = filter_var($_POST['observations'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
 
-        if(empty($_FILES)){
+        if(!empty($_FILES)){
 
             //define the way
             $images_folder = 'assets/images/houses/';
@@ -36,15 +36,15 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
                 move_uploaded_file($_FILES['photo_house']['tmp_name'], $save_path); // save in the folder
                 header("Location: ../create_house.php?status=created_house");
 
-                echo 'caiu aqui';
-                print_r($_FILES);
+                // echo 'caiu aqui';
+                // print_r($_FILES);
     
             } catch (PDOException $e) {
                 throw new Exception('Erro while insert the object: ' . $e->getMessage());
             }
 
         } else {
-            $path = 'assets/images/houses/default_img.jpg';
+            $path = 'assets/images/houses/default_house.jpg';
 
             try {
                 // insert a new house

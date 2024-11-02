@@ -14,7 +14,7 @@ include_once 'controllers/header.php';
         <form action="providers/create_house_be.php" method="POST" enctype="multipart/form-data">
             <div class="row">
                 <div class="mt-3">
-                    <a href="" class="btn btn-success float-end">See All Houses</a>
+                    <a href="houses.php" class="btn btn-success float-end">See All Houses</a>
                 </div>
                 <div class="mt-3 text-center">
                     <h3>Insert a new house</h3>

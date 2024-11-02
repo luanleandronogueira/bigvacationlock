@@ -48,4 +48,39 @@ class House implements interface_house{
         }
     }
 
+    public function call_house(){
+        $query = "SELECT address_, house_name, id, house_photo FROM tb_houses";
+
+        try {
+            $conn = $this->conection->Connect();
+            $stmt = $conn->prepare($query);
+
+            $stmt->execute();
+
+            $r = [];
+            return $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            throw new Exception('Erro while insert the object: ' . $e->getMessage());
+        }
+    }
+
+    public function call_all_houses(){
+        $query = "SELECT * FROM tb_houses";
+
+        try {
+            $conn = $this->conection->Connect();
+            $stmt = $conn->prepare($query);
+
+            $stmt->execute();
+
+            $r = [];
+            return $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            throw new Exception('Erro while insert the object: ' . $e->getMessage());
+        }
+    }
+
+
 }
