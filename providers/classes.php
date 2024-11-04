@@ -17,14 +17,15 @@ class House implements interface_house{
     private $wifi_password;
     private $observations;
     private $house_photo;
+    private $onwer;
 
     public function __construct()
     {
         $this->conection = new Connection;
     }
 
-    public function insert_house($address_, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $house_photo) {
-        $query = "INSERT INTO tb_houses (address_, house_name, door_code, gate_code, community_pool, fitness_center, wifi_network, wifi_password, observations, house_photo) VALUES (:address_, :house_name, :door_code, :gate_code, :community_pool, :fitness_center, :wifi_network, :wifi_password, :observations, :house_photo)";
+    public function insert_house($address_, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $house_photo, $onwer) {
+        $query = "INSERT INTO tb_houses (address_, house_name, door_code, gate_code, community_pool, fitness_center, wifi_network, wifi_password, observations, house_photo, onwer) VALUES (:address_, :house_name, :door_code, :gate_code, :community_pool, :fitness_center, :wifi_network, :wifi_password, :observations, :house_photo, :onwer)";
 
         try {
             $conn = $this->conection->Connect();
@@ -41,6 +42,7 @@ class House implements interface_house{
             $stmt->bindValue(':wifi_password', $wifi_password);
             $stmt->bindValue(':observations', $observations);
             $stmt->bindValue(':house_photo', $house_photo);
+            $stmt->bindValue(':onwer', $onwer);
 
             $stmt->execute();
         } catch (PDOException $e) {
@@ -101,5 +103,32 @@ class House implements interface_house{
         }
     }
 
+}
 
+
+class Onwers {
+    private int $id_owner;
+    private $conection;
+    private $name_owner;
+
+    public function __construct()
+    {
+        $this->conection = new Connection;
+    }
+
+    public function call_owners(){
+        $query = "SELECT * FROM tb_owners";
+        try {
+            $conn = $this->conection->Connect();
+            $stmt = $conn->prepare($query);
+
+            $stmt->execute();
+
+            $r = [];
+            return $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            throw new Exception('Erro while insert the object: ' . $e->getMessage());
+        }
+    }
 }

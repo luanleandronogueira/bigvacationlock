@@ -13,9 +13,10 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $fitness_center = filter_var($_POST['fitness_center'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
         $wifi_network = filter_var($_POST['wifi_network'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
         $wifi_password = filter_var($_POST['wifi_password'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
-        $observations = filter_var($_POST['observations'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
+        $observations = filter_var($_POST['observations'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $onwer = filter_var($_POST['who_cares'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
-        if(!empty($_FILES)){
+        if(!empty($_FILES['photo_house']['name'])){
 
             //define the way
             $images_folder = 'assets/images/houses/';
@@ -32,13 +33,10 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
             try {
                 // insert a new house
-                $house->insert_house($address, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $path);
+                $house->insert_house($address, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $path, $onwer);
                 move_uploaded_file($_FILES['photo_house']['tmp_name'], $save_path); // save in the folder
                 header("Location: ../create_house.php?status=created_house");
 
-                // echo 'caiu aqui';
-                // print_r($_FILES);
-    
             } catch (PDOException $e) {
                 throw new Exception('Erro while insert the object: ' . $e->getMessage());
             }
@@ -48,7 +46,7 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
             try {
                 // insert a new house
-                $house->insert_house($address, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $path);
+                $house->insert_house($address, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $path, $onwer);
                 header("Location: ../create_house.php?status=created_house");
     
             } catch (PDOException $e) {

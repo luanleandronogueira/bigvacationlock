@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 02/11/2024 às 18:06
+-- Tempo de geração: 04/11/2024 às 22:42
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -38,20 +38,36 @@ CREATE TABLE `tb_houses` (
   `wifi_network` varchar(30) NOT NULL,
   `wifi_password` varchar(200) NOT NULL,
   `observations` text NOT NULL,
-  `house_photo` varchar(200) NOT NULL
+  `house_photo` varchar(200) NOT NULL,
+  `onwer` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tb_houses`
 --
 
-INSERT INTO `tb_houses` (`id`, `address_`, `house_name`, `door_code`, `gate_code`, `community_pool`, `fitness_center`, `wifi_network`, `wifi_password`, `observations`, `house_photo`) VALUES
-(5, '4427 Shiva Loop, Kissimmee, FL 34746', 'Super Homey', '590159', '1021', '0-3-6-5', '5-4-3-5#', 'spectumsetup-84', 'Northverse715', '', 'assets/images/houses/4427-Shiva-Loop--Kissimmee--FL-34746.'),
-(6, '4427 Shiva Loop, Kissimmee, FL 34746', 'Super Cozy', '590159', '1021', '0-3-6-5', '5-4-3-5#', 'spectumsetup-84', 'Northverse715', '', 'assets/images/houses/4427-Shiva-Loop--Kissimmee--FL-34746.'),
-(7, '4427 Shiva Loop, Kissimmee, FL 34746', 'Super Cozy', '590159', '1021', '0-3-6-5', '5-4-3-5#', 'spectumsetup-84', 'Northverse715', '', 'assets/images/houses/4427-Shiva-Loop--Kissimmee--FL-34746.'),
-(8, '4427 Shiva Loop, Kissimmee, FL 34746', 'Super Cozy', '590159', '1021', '0-3-6-5', '5-4-3-5#', 'spectumsetup-84', 'Northverse715', '', 'assets/images/houses/4427-Shiva-Loop--Kissimmee--FL-34746.'),
-(9, '4427 Shiva Loop, Kissimmee, FL 34746', 'Super Cozy', '590159', '1021', '0-3-6-5', '5-4-3-5#', 'spectumsetup-84', 'Northverse715', '', 'assets/images/houses/default_img.jpg'),
-(10, '4427 Shiva Loop, Kissimmee, FL 34746', 'Super Cozy', '590159', '1021', '0-3-6-5', '5-4-3-5#', 'spectumsetup-84', 'Northverse715', '', 'assets/images/houses/default_img.jpg');
+INSERT INTO `tb_houses` (`id`, `address_`, `house_name`, `door_code`, `gate_code`, `community_pool`, `fitness_center`, `wifi_network`, `wifi_password`, `observations`, `house_photo`, `onwer`) VALUES
+(25, '4427 Shiva Loop, Kissimmee, FL 34746', 'Super Cozy', '590159', '1021', '0-3-6-5', '5-4-3-5#', 'spectumsetup-84', 'Northverse715', 'Who takes care of this house?', 'assets/images/houses/4427-Shiva-Loop--Kissimmee--FL-34746.jpeg', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tb_owners`
+--
+
+CREATE TABLE `tb_owners` (
+  `id_owner` int(11) NOT NULL,
+  `name_owner` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tb_owners`
+--
+
+INSERT INTO `tb_owners` (`id_owner`, `name_owner`) VALUES
+(1, 'Justin'),
+(2, 'Desirée'),
+(3, 'Owner');
 
 --
 -- Índices para tabelas despejadas
@@ -64,6 +80,12 @@ ALTER TABLE `tb_houses`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices de tabela `tb_owners`
+--
+ALTER TABLE `tb_owners`
+  ADD PRIMARY KEY (`id_owner`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -71,7 +93,13 @@ ALTER TABLE `tb_houses`
 -- AUTO_INCREMENT de tabela `tb_houses`
 --
 ALTER TABLE `tb_houses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de tabela `tb_owners`
+--
+ALTER TABLE `tb_owners`
+  MODIFY `id_owner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

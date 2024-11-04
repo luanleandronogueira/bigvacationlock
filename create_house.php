@@ -1,13 +1,16 @@
 <?php
+include_once 'providers/classes.php';
 include_once 'controllers/header.php';
+$owners = new Onwers;
+$owner = $owners->call_owners();
 
 ?>
 <script>
-        // Verifique se a página foi recarregada (atualizada)
-        if (performance.navigation.type === 1) {
-            // Redirecione para a URL desejada
-            window.location.href = 'create_house.php';
-        }
+    // Verifique se a página foi recarregada (atualizada)
+    if (performance.navigation.type === 1) {
+        // Redirecione para a URL desejada
+        window.location.href = 'create_house.php';
+    }
 </script>
 <section>
     <div class="container mt-2">
@@ -21,9 +24,9 @@ include_once 'controllers/header.php';
                 </div>
 
                 <?php if (isset($_GET['status']) and $_GET['status'] === 'created_house') { ?>
-                <div class="p-3 bg-success bg-opacity-10 border border-success border-start-0 border-end-0 text-center">
-                    You've create a new House!
-                </div>
+                    <div class="p-3 bg-success bg-opacity-10 border border-success border-start-0 border-end-0 text-center">
+                        You've create a new House!
+                    </div>
                 <?php } ?>
 
                 <hr>
@@ -60,6 +63,25 @@ include_once 'controllers/header.php';
                     <label for="wifi_password">Wi-Fi Password:</label>
                     <input class="form-control" type="text" name="wifi_password" id="wifi_password">
                 </div>
+
+                <!-- ----------------------------------------- -->
+
+                <hr class="mt-3">
+                <h6>Who takes care of this house?</h6>
+                <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-md-12">
+                    <label for="who_cares">Select one:</label>
+                    <select class="form-control" name="who_cares" id="who_cares">
+
+                        <?php foreach($owner as $o) {?>
+                        <option value="<?=$o['id_owner'] ?>"><?=$o['name_owner'] ?></option>
+                        <?php }?>
+
+                    </select>
+                </div>
+                <hr class="mt-3">
+
+                <!-- ----------------------------------------- -->
+
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-md-12">
                     <label for="observations">Observations:</label>
                     <textarea class="form-control" rows="8" name="observations" id="observations"></textarea>
@@ -70,7 +92,7 @@ include_once 'controllers/header.php';
                 </div>
 
                 <div class="col-xxl-12 col-xl-12 col-lg-12 col-sm-12 col-md-12 mt-4">
-                    <a href="" class="btn btn-warning">Back</a>
+                    <a href="houses.php" class="btn btn-warning">Back</a>
                     <button class="btn btn-primary" type="submit">Create new</button>
                 </div>
         </form>
