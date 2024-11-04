@@ -51,7 +51,7 @@ $houses = $house->call_house();
                                         <td><strong><?=$home['house_name'] ?></strong></td>
                                         <td><?=$home['address_'] ?></td>
                                         <td></td>
-                                        <td><a href="house.php?id=<?=$home['id']?>" class="btn btn-sm btn-info">Details</a></td>
+                                        <td><a href="home.php?id=<?=$home['id']?>" class="btn btn-sm btn-info">Details</a></td>
                                     </tr>
 
                                 <?php } ?>

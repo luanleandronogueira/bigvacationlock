@@ -3,6 +3,10 @@ body {
     font-family: "Raleway", sans-serif !important;
 
 }
+.nav1 {
+    padding: 16px !important;
+    background-color: #004854 !important;
+}
 
 nav a {
     color: white !important;
@@ -11,3 +15,11 @@ nav a {
 nav ul li {
     color: black !important;
 }
+
+.collapse {
+    padding: 20px !important; 
+}
+
+.nounderline {
+    list-style-type: none !important;
+  }

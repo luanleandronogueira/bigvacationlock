@@ -15,31 +15,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <!-- css -->
-   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <style>
-      /* Adicione um estilo específico para telas menores, como celulares */
-      @media (max-width: 767px) {
-        /* Seletor para a tabela que você deseja adicionar o scroll horizontal */
-        .sua-tabela {
-          /* Defina a largura máxima da tabela para ativar o scroll horizontal quando necessário */
-          max-width: 100%;
-          /* Adicione um scroll horizontal quando o conteúdo excede a largura da tabela */
-          overflow-x: auto;
-          display: block; /* Adicione display: block para forçar a barra de rolagem horizontal */
-        }
-        /* Opcional: Remova as bordas da tabela para um visual mais limpo */
-        .sua-tabela, .sua-tabela th, .sua-tabela td {
-          border: none;
-        }
-      }
-    </style>
+  /* Adicione um estilo específico para telas menores, como celulares */
+  @media (max-width: 767px) {
+
+    /* Seletor para a tabela que você deseja adicionar o scroll horizontal */
+    .sua-tabela {
+      /* Defina a largura máxima da tabela para ativar o scroll horizontal quando necessário */
+      max-width: 100%;
+      /* Adicione um scroll horizontal quando o conteúdo excede a largura da tabela */
+      overflow-x: auto;
+      display: block;
+      /* Adicione display: block para forçar a barra de rolagem horizontal */
+    }
+
+    /* Opcional: Remova as bordas da tabela para um visual mais limpo */
+    .sua-tabela,
+    .sua-tabela th,
+    .sua-tabela td {
+      border: none;
+    }
+  }
+</style>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg bg-primary">
+    <nav class="navbar nav1 navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">
+          <img src="./assets/images/logo.png" alt="Logo" width="50" height="34" class="d-inline-block align-text-top">
+           <span class="d-none d-lg-inline">&nbsp;&nbsp; <strong>BIG Vacation Lock</strong></span> 
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -49,15 +57,15 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="houses.php">Houses</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="#">Maitenance</a>
             </li>
             <div>
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown link
+                  Configurations
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item text-dark" href="#">Action</a></li>

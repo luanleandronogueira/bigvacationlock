@@ -1,5 +1,5 @@
 </main>
-<footer>
+<footer class="mt-5">
     
 </footer>
 <script src="assets/js/script.js"></script>

@@ -71,11 +71,30 @@ class House implements interface_house{
         try {
             $conn = $this->conection->Connect();
             $stmt = $conn->prepare($query);
+            
 
             $stmt->execute();
 
             $r = [];
             return $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            throw new Exception('Erro while insert the object: ' . $e->getMessage());
+        }
+    }
+
+    public function call_one_house($id){
+        $query = "SELECT * FROM tb_houses WHERE id = :id";
+
+        try {
+            $conn = $this->conection->Connect();
+            $stmt = $conn->prepare($query);
+            $stmt->bindValue(':id', $id);
+
+            $stmt->execute();
+
+            $r = [];
+            return $r = $stmt->fetch(PDO::FETCH_ASSOC);
 
         } catch (PDOException $e) {
             throw new Exception('Erro while insert the object: ' . $e->getMessage());
