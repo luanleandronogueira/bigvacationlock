@@ -1,7 +1,7 @@
 <?php
 include_once 'providers/classes.php';
 include_once 'controllers/header.php';
-$owners = new Onwers;
+$owners = new Owners;
 $owner = $owners->call_owners();
 
 ?>

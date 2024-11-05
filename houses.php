@@ -4,9 +4,9 @@ include_once 'controllers/header.php';
 $house = new House;
 $houses = $house->call_house();
 
-echo '<pre>';
-    print_r($houses);
-echo '</pre>';
+// echo '<pre>';
+//     print_r($houses);
+// echo '</pre>';
 
 ?>
 <script>

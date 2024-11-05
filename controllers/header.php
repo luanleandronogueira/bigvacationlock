@@ -54,13 +54,13 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="dashboard.php">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="houses.php">Houses</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Maitenance</a>
+              <a class="nav-link" href="maitenances.php">Maitenance</a>
             </li>
             <div>
               <li class="nav-item dropdown ">
@@ -68,7 +68,7 @@
                   Configurations
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item text-dark" href="#">Action</a></li>
+                  <li><a class="dropdown-item text-dark" href="create_user.php">Users</a></li>
                   <li><a class="dropdown-item text-dark" href="#">Another action</a></li>
                   <li><a class="dropdown-item text-dark" href="#">Something else here</a></li>
                 </ul>

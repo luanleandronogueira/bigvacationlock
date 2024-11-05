@@ -29,7 +29,10 @@ $houses = $house->call_one_house($_GET['id']);
                             <strong>Wi-Fi Password:</strong> <?= $houses['wifi_password'] ?></br>
                         </p>
                         <hr>
+                         <strong>Owner: </strong><?=$houses['name_owner'] ?>
+                        <hr>
                         <li><strong>Observations:</strong> <?= $houses['observations'] ?></li>
+                        <hr>
                     </ul>
                     <input type="hidden">
                     <button onclick="copy_text()" class="btn btn-sm btn-warning ">Copy informations</button>
