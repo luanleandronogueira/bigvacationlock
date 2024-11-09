@@ -59,9 +59,9 @@
             <li class="nav-item">
               <a class="nav-link" href="houses.php">Houses</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="maitenances.php">Maitenance</a>
-            </li>
+            </li> -->
             <div>
               <li class="nav-item dropdown ">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -69,12 +69,14 @@
                 </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item text-dark" href="create_user.php">Users</a></li>
-                  <li><a class="dropdown-item text-dark" href="#">Another action</a></li>
-                  <li><a class="dropdown-item text-dark" href="#">Something else here</a></li>
+                  <li><a class="dropdown-item text-dark" href="#">Block User</a></li>
+                  <li><a class="dropdown-item text-dark" aria-disabled="true" href="#">New Password</a></li>
                 </ul>
               </li>
             </div>
-
+            <li class="nav-item">
+              <a class="nav-link" href="logout.php">Logout</a>
+            </li>
           </ul>
         </div>
       </div>

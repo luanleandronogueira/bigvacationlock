@@ -1,5 +1,7 @@
 <?php
+session_reset();
 include_once 'providers/classes.php';
+verify_session();
 include_once 'controllers/header.php';
 $house = new House;
 $houses = $house->call_one_house($_GET['id']);

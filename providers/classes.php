@@ -165,3 +165,106 @@ class Handymans implements interface_handymans {
     }
 
 }
+
+class User {
+    private int $id_user;
+    private $conection;
+    private $name_user;
+    private $nickname_user;
+    private $email_user;
+    private $password_user;
+    private $status_user;
+
+    public function __construct()
+    {
+        $this->conection = new Connection;
+    }
+
+    public function call_user(){
+        $query = "SELECT * FROM tb_users";
+        try {
+            $conn = $this->conection->Connect();
+            $stmt = $conn->prepare($query);
+
+            $stmt->execute();
+
+            $r = [];
+            return $r = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            throw new Exception('Erro while insert the object: ' . $e->getMessage());
+        }
+    }
+
+    public function authentic_user($email_user){
+        $query = "SELECT * FROM tb_users WHERE status_user != 'I' AND email_user = :email_user LIMIT 1";
+
+        try {
+            $conn = $this->conection->Connect();
+            $stmt = $conn->prepare($query);
+            $stmt->bindValue(':email_user', $email_user);
+
+            $stmt->execute();
+
+            $r = [];
+            return $r = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
+            throw new Exception('Erro while insert the object: ' . $e->getMessage());
+        }
+    }
+
+    public function consult_user($email_user){
+        $query = "SELECT * FROM tb_users WHERE email_user = :email_user";
+
+        try {
+            $conn = $this->conection->Connect();
+            $stmt = $conn->prepare($query);
+            $stmt->bindValue(':email_user', $email_user);
+
+            $stmt->execute();
+
+            $r = [];
+            return $r = $stmt->rowCount();
+
+        } catch (PDOException $e) {
+            throw new Exception('Erro while insert the object: ' . $e->getMessage());
+        }
+    }
+
+    public function insert_user($name_user, $nickname_user, $email_user, $password_user, $status_user) {
+        $query = "INSERT INTO tb_users (name_user, nickname_user, email_user, password_user, status_user) VALUES (:name_user, :nickname_user, :email_user, :password_user, :status_user)";
+
+        try {
+            $conn = $this->conection->Connect();
+            $stmt = $conn->prepare($query);
+
+            $stmt->bindValue(':name_user', $name_user);
+            $stmt->bindValue(':nickname_user', $nickname_user);
+            $stmt->bindValue(':email_user', $email_user);
+            $stmt->bindValue(':password_user', $password_user);
+            $stmt->bindValue(':status_user', $status_user);
+
+            $stmt->execute();
+        } catch (PDOException $e) {
+            throw new Exception('Erro while insert the object: ' . $e->getMessage());
+        }
+    }
+
+
+
+}
+
+function verify_session() {
+    // Inicia a sessão se ainda não estiver iniciada
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+
+    // Verifica se a sessão é válida e se o usuário está ativo
+    if (!isset($_SESSION) || $_SESSION['status_user'] != 'A') {
+        session_destroy();
+        header("Location: login.php?error=1&session_invalid");
+        exit;
+    }
+}

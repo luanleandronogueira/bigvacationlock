@@ -50,39 +50,39 @@
                     <h3 class="text-center mt-3">BIG Vacation Lock</h3>
                   </div>
 
-                  <?php if (isset($_GET['senha']) == 'incorreta') { ?>
+                  <?php if (isset($_GET['status']) == 'password_invalid') { ?>
 
-                    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                    <div class="alert alert-danger text-center alert-dismissible fade show mt-4" role="alert">
                       <i class="bi bi-check-circle me-1"></i>
-                      Login ou Senha Incorretos
+                        Password Invalid
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
 
                   <?php } ?>
 
-                  <?php if (isset($_GET['usuario']) && isset($_GET['usuario']) == 'bloqueado') { ?>
+                  <?php if (isset($_GET['status1']) && isset($_GET['status1']) == 'blocked') { ?>
 
-                    <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                    <div class="alert alert-warning text-center alert-dismissible fade show mt-4" role="alert">
                       <i class="bi bi-check-circle me-1"></i>
-                      <strong>Usuário Bloqueado</strong>, entre em contato com o Administrador
+                      <strong>User blocked</strong>
                       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
 
                   <?php } ?>
 
-                  <form method="post" action="providors/authentic_user.php" class="row g-3 needs-validation" novalidate>
+                  <form method="post" action="providers/authentic_user.php" class="row g-3 needs-validation" novalidate>
 
                     <div class="col-12 text-center">
-                      <label for="login" class="form-label "><strong>E-mail:</strong></label>
+                      <label for="email_user" class="form-label "><strong>E-mail:</strong></label>
                       <div class="input-group has-validation">
-                        <input type="email" id="login" name="login" class="form-control" required>
+                        <input type="email" id="email_user" name="email_user" class="form-control text-center" required>
                         <div class="invalid-feedback">Insira o eu usuário</div>
                       </div>
                     </div>
 
                     <div class="col-12 text-center">
-                      <label for="password" class="form-label "><strong>Password:</strong></label>
-                      <input type="password" name="password" class="form-control" required>
+                      <label for="password_user" class="form-label "><strong>Password:</strong></label>
+                      <input type="password" id="password_user" name="password_user" class="form-control text-center" required>
                       <div class="invalid-feedback">Insira a Senha.</div>
                     </div>
 

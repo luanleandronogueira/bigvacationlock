@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/11/2024 às 04:24
+-- Tempo de geração: 09/11/2024 às 16:18
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -104,6 +104,30 @@ INSERT INTO `tb_owners` (`id_owner`, `name_owner`) VALUES
 (2, 'Desirée'),
 (3, 'Owner');
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tb_users`
+--
+
+CREATE TABLE `tb_users` (
+  `id_user` int(11) NOT NULL,
+  `name_user` varchar(200) NOT NULL,
+  `nickname_user` varchar(100) NOT NULL,
+  `email_user` varchar(100) NOT NULL,
+  `password_user` varchar(400) NOT NULL,
+  `status_user` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tb_users`
+--
+
+INSERT INTO `tb_users` (`id_user`, `name_user`, `nickname_user`, `email_user`, `password_user`, `status_user`) VALUES
+(1, 'Luan Leandro Nogueira', 'Luan', 'luannogueira093@gmail.com', '$2y$10$CAJEI0v7Hib0i9jGad1wIeFk.ken3PmdYPSPEkJqCkI75OXmVLFn.', 'A'),
+(2, 'Aylla Alves', 'Yaya', 'aylla@aylla.com', '$2y$10$CAJEI0v7Hib0i9jGad1wIeFk.ken3PmdYPSPEkJqCkI75OXmVLFn.', 'I'),
+(3, 'Fernanda Vieira', 'Nanda', 'familiavieira245@gmail.com', '$2y$10$mgVwxXfxtRNQhM7lfv0miOZbp0OP43Lu1IA0pNo0ynbPGQ0LXxXxO', 'A');
+
 --
 -- Índices para tabelas despejadas
 --
@@ -134,6 +158,12 @@ ALTER TABLE `tb_owners`
   ADD PRIMARY KEY (`id_owner`);
 
 --
+-- Índices de tabela `tb_users`
+--
+ALTER TABLE `tb_users`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -160,6 +190,12 @@ ALTER TABLE `tb_maitenances`
 --
 ALTER TABLE `tb_owners`
   MODIFY `id_owner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `tb_users`
+--
+ALTER TABLE `tb_users`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restrições para tabelas despejadas
