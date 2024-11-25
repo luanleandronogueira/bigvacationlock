@@ -73,7 +73,7 @@
                   <form method="post" action="providers/authentic_user.php" class="row g-3 needs-validation" novalidate>
 
                     <div class="col-12 text-center">
-                      <label for="email_user" class="form-label "><strong>E-mail:</strong></label>
+                      <label for="email_user" class="form-label "><strong>Nickname/Login:</strong></label>
                       <div class="input-group has-validation">
                         <input type="email" id="email_user" name="email_user" class="form-control text-center" required>
                         <div class="invalid-feedback">Insira o eu usuário</div>

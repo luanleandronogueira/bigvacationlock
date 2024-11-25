@@ -4,10 +4,21 @@ include_once 'providers/classes.php';
 verify_session();
 include_once 'controllers/header.php';
 $house = new House;
-$houses = $house->call_house();
+
+
+if($_SESSION['location_user'] == 'w_area') {
+    $houses = $house->call_house_w_area();
+
+} else if($_SESSION['location_user'] == 'fl_area') {
+    $houses = $house->call_house_fl_area();
+
+} else {
+    $houses = $house->call_house();
+
+}
 
 // echo '<pre>';
-//     print_r($houses);
+//     print_r($_SESSION);
 // echo '</pre>';
 
 ?>
@@ -42,7 +53,7 @@ $houses = $house->call_house();
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Address </th>
-                                    <th></th>
+                                    <th>Area</th>
                                     <th>See Details</th>
                                 </tr>
                             </thead>
@@ -55,7 +66,7 @@ $houses = $house->call_house();
                                         </td>
                                         <td><strong><?=$home['house_name'] ?></strong></td>
                                         <td><?=$home['address_'] ?></td>
-                                        <td></td>
+                                        <td><?=$home['house_area'] ?></td>
                                         <td><a href="home.php?id=<?=$home['id']?>" class="btn btn-sm btn-info">Details</a></td>
                                     </tr>
 

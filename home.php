@@ -38,7 +38,8 @@ $houses = $house->call_one_house($_GET['id']);
                     </ul>
                     <input type="hidden">
                     <button onclick="copy_text()" class="btn btn-sm btn-warning ">Copy informations</button>
-                    <a href="houses.php" class="btn btn-sm btn-primary ">Back</a>
+                    <a href="edit_house.php?id=<?=$_GET['id'] ?>" class="btn btn-sm btn-success">Edit</a>
+                    <a href="houses.php" class="btn btn-sm btn-primary">Back</a>
                 </div>
 
             </div>

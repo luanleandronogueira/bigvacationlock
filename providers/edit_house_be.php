@@ -5,7 +5,7 @@ $house = new House;
 if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if(!empty($_POST)){
-        $address = ucwords(filter_var($_POST['address'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
+        $address_ = ucwords(filter_var($_POST['address'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
         $house_name = ucwords(filter_var($_POST['house_name'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS)); 
         $door_code = filter_var($_POST['door_code'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
         $gate_code = filter_var($_POST['gate_code'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS); 
@@ -16,6 +16,7 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
         $observations = filter_var($_POST['observations'] , FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $owner = filter_var($_POST['who_cares'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $house_area = filter_var($_POST['house_area'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $id = filter_var($_POST['id'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if(!empty($_FILES['photo_house']['name'])){
 
@@ -33,10 +34,10 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $save_path = '../' . $path;
 
             try {
-                // insert a new house
-                $house->insert_house($address, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $path, $owner, $house_area);
+                // update a new house
+                $house->update_house($address_, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $path, $owner, $house_area, $id);
                 move_uploaded_file($_FILES['photo_house']['tmp_name'], $save_path); // save in the folder
-                header("Location: ../create_house.php?status=created_house");
+                header("Location: ../edit_house.php?id=" . $id . "&&status=created_house");
 
             } catch (PDOException $e) {
                 throw new Exception('Erro while insert the object: ' . $e->getMessage());
@@ -46,9 +47,9 @@ if(isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] === 'POST') {
             $path = 'assets/images/houses/default_house.jpg';
 
             try {
-                // insert a new house
-                $house->insert_house($address, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $path, $owner, $house_area);
-                header("Location: ../create_house.php?status=created_house");
+                // update a new house
+                $house->update_house($address_, $house_name, $door_code, $gate_code, $community_pool, $fitness_center, $wifi_network, $wifi_password, $observations, $path, $owner, $house_area, $id);
+                header("Location: ../edit_house.php?id=" . $id . "&&status=created_house");
     
             } catch (PDOException $e) {
                 throw new Exception('Erro while insert the object: ' . $e->getMessage());

@@ -63,11 +63,13 @@ include_once 'controllers/header.php';
                 <label for="user_confirm_password">Confirm Password:</label>
                 <input class="form-control" type="password" name="user_confirm_password" id="user_confirm_password">
                 <br>
-                <!-- <label for="access_module">Access Module:</label>
-                    <select class="form-control" name="" id="">
-                        <option value="">Admin</option>
-                        <option value="">Handyman</option>
-                    </select> -->
+                <label for="location_user">Access Module:</label>
+                    <select class="form-control" name="location_user" id="location_user">
+                        <option value="all">All Areas</option>
+                        <option value="fl_area">Florida Area</option>
+                        <option value="w_area">West Area</option>
+                    </select>
+                </br>
                 <button type="submit" class="btn btn-success">Create</button>
             </form>
         </div>
